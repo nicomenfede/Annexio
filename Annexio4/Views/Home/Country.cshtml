@@ -1,0 +1,43 @@
+﻿@model Annexio4.Models.CountryViewModel
+@{
+    ViewBag.Title = "Country";
+}
+<h2>@ViewBag.Title</h2>
+
+<table>
+    <tr>
+        <td>Country Name</td>
+        <td>@Model.Name</td>
+    </tr>
+    <tr>
+        <td>Capital</td>
+        <td>@Model.Capital</td>
+    </tr>
+    <tr>
+        <td>Population</td>
+        <td>@Model.Population</td>
+    </tr>
+    <tr>
+        <td>Currencies</td>
+        <td>
+            @foreach (var currency in Model.Currencies)
+            {
+                @currency.Name<br />
+            }
+        </td>
+    </tr>
+    <tr>
+        <td>Languages</td>
+        <td>@foreach (var language in Model.Languages)
+        {
+            @language.Name<br />
+        }</td>
+    </tr>
+    <tr>
+        <td>Borders</td>
+        <td>@foreach (var country in Model.Borders)
+        {
+            @Html.ActionLink(country, "Country", "Home", new { name = country }, null)<br />
+        }</td>
+    </tr>
+</table>
